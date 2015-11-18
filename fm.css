@@ -1,0 +1,18 @@
+#list-container{
+	width:1418px;
+	float:left;
+	display:none;
+}
+#list-panel{
+	margin:9px;
+}
+#list-table{
+	word-wrap: break-word;
+}
+#main-bar{
+	width:100%;
+	height:100px;
+	float:left;
+	position:relative;
+	background-image:url(./K45A69Y0D0YA.png);
+}
