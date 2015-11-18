@@ -5,55 +5,43 @@
 	<link rel="stylesheet" href="./bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<script src="./jquery.min.js"></script>
 	<script src="./bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./fm.css">
 	<style type="text/css">
-	</style>
+		#front-page-container h1,h4,p,button{
+			margin: 10px;
+		}
+		</style>
 </head>
 
 <body >
 	<div id='main-container'>
-		<div style="width:1418px;float:left;display:none；" id="list-container">
-			<div style="width:1200px;margin:9px;display:none;border-radius:8px;margin-left:200px" id="list">
-				<div class="panel panel-default">
-				  <div class="panel-body">
-				    <table class='table table-hover  ' style="word-wrap: break-word">
-				</table>
-				  </div>
-				</div>
-				
+		<div id="list-container">
+			<div class="panel panel-default" id="list-panel">
+				<div class="panel-body" >
+			    	<table class='table table-hover' id="list-table"></table>
+			  	</div>
 			</div>
 		</div>
-		<div style="width:100%;height:100px;float:left;position:relative;background-image:url(./K45A69Y0D0YA.png)" id="main-bar">
-	
-			<button type="button " class="btn btn-default" aria-label="Left Align" id="spread" style="position:absolute;left:0px;top:0px">
-  				Open
-			</button>
+		<div id="main-bar">
+			<div id="front-page-container" style='width:600px;color:white;text-align:left;font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif'>
+				<div >
+					<h1 >FM915987 在爱的路上千万里</h1>
+					<h4>愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</h4>
+					<p>新浪微博:喜欢狐狸的松鼠</p>
+					<p>微信:1823708607</p>
+				</div> 
+				<button type="button" class="btn btn-primary btn-lg" aria-label="Left Align" id="spread" >
+	  				立即收听
+				</button>
+			</div>
 		</div>
 	</div>
 	<div>
 		
 	</div>
 
-
+<script src='./fm.js'></script>
 <script>
-	var bkgWid=1920;
-	var bkgHgt=940;
-	var fixW=0.7;
-	var fixH=0.7;
-	function reszBkg(){
-		var winH=$(window).height();
-		var winW=$(window).width();
-		var w=winW;
-		var h=Math.round(bkgHgt/bkgWid*w);
-		if(h<winH){
-			h=winH;
-			w=Math.round(bkgWid/bkgHgt*h);
-		}
-		var offw=Math.round(fixW*winW-fixW*w);
-		var offh=Math.round(fixH*winH-fixH*h);
-		console.log($(window).width()+'/'+w+','+winH+'/'+h+','+offw+'/'+offh);
-		
-		$('#main-bar').height($(window).height()).css("background-size",w+'px '+h +'px').css("background-position",offw+'px '+offh+'px');
-	}
 
 	$(document).ready(function(){
 		$('#spread').on('click',function(){
@@ -63,7 +51,7 @@
 			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'9px','margin-left':'1409px','border-radius':'8px'},'slow','swing',function(){
 				$('#main-bar').css('margin-left','9px');
 				$('#list-container').css('display','block');
-				$('#list').fadeIn();
+				//$('#list').fadeIn();
 			});
 			console.log('finish');
 			$(this).hide();
