@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head>
+	<link rel="stylesheet" href="./bootstrap-3.3.5-dist/css/bootstrap.min.css">
+	<script src="./jquery.min.js"></script>
+	<script src="./bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+
+<body >
+	<div id='main-container'>
+		<div style="width:1418px;float:left;display:none；" id="list-container">
+			<div style="width:1200px;margin:9px;display:none;border-radius:8px;margin-left:200px" id="list">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    <table class='table table-hover  ' style="word-wrap: break-word">
+				</table>
+				  </div>
+				</div>
+				
+			</div>
+		</div>
+		<div style="width:100%;height:100px;float:left;position:relative;background-image:url(./K45A69Y0D0YA.png)" id="main-bar">
+	
+			<button type="button " class="btn btn-default" aria-label="Left Align" id="spread" style="position:absolute;left:0px;top:0px">
+  				Open
+			</button>
+		</div>
+	</div>
+	<div>
+		
+	</div>
+
+
+<script>
+	var bkgWid=1920;
+	var bkgHgt=940;
+	var fixW=0.7;
+	var fixH=0.7;
+	function reszBkg(){
+		var winH=$(window).height();
+		var winW=$(window).width();
+		var w=winW;
+		var h=Math.round(bkgHgt/bkgWid*w);
+		if(h<winH){
+			h=winH;
+			w=Math.round(bkgWid/bkgHgt*h);
+		}
+		var offw=Math.round(fixW*winW-fixW*w);
+		var offh=Math.round(fixH*winH-fixH*h);
+		console.log($(window).width()+'/'+w+','+winH+'/'+h+','+offw+'/'+offh);
+		
+		$('#main-bar').height($(window).height()).css("background-size",w+'px '+h +'px').css("background-position",offw+'px '+offh+'px');
+	}
+
+	$(document).ready(function(){
+		$('#spread').on('click',function(){
+			console.log('click');
+			$('body').css('background-color','gray');
+			$('#main-container').css('width','1800px');
+			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'9px','margin-left':'1409px','border-radius':'8px'},'slow','swing',function(){
+				$('#main-bar').css('margin-left','9px');
+				$('#list-container').css('display','block');
+				$('#list').fadeIn();
+			});
+			console.log('finish');
+			$(this).hide();
+		});
+	}).ready(function(){
+		$('ul').on('click',function(event){
+			console.log(event.target);
+			$(event.target).css('background-color','green');
+		});
+	}).ready(function(){
+		$(window).on('resize',reszBkg);
+	}).ready(reszBkg);
+</script>
+<script>
+	function insertList(obj){
+		var l=$('.table');
+		for(var x in obj.list){
+			l.append('<tr> <td>play-button</td> <td>'+obj.list[x]+'</td><td>2015/11/18</td></tr>');
+		}
+	}
+</script>
+<script> 
+		insertList({'list':['aaxxxxbknihbiuhkuhiuhbkjbkuhbkugkxxxxxa','bbb']});
+</script>
+
+</body>
+</html>
