@@ -47,7 +47,7 @@
 </head>
 
 <body >
-	<div id='main-container' style="min-width:1400px">
+	<div id='main-container' style="min-width:1320px">
 		<div id="list-container"  >
 			<div type="none" class="list group" style="margin:10px;padding:0px;">
 			  	<a class="list-group-item" href='#' style="" ><div class="row">
@@ -124,12 +124,14 @@
 	$(document).ready(function(){
 		$('#spread').on('click',function(){
 			console.log('click');
-			$(window).on('resize',function(){
-			});
+			$(window).off('resize');
 			$('body').css('background-color','#efeeeb');
 			//$('#main-container').css('width','1600px');
-			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':'978px','border-radius':'8px'},'slow','swing',function(){
-				$('#main-bar').css('margin-left','18px');
+			var w=$(window).width();
+			w=Math.max(w,1320);
+			w=(w-1278)/2+940+24;
+			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':w+'px','border-radius':'8px'},'slow','swing',function(){
+				$('#main-bar').css('margin-left','24px');
 				$('#list-container').fadeIn();
 			}).empty();
 			console.log('finish');
@@ -139,6 +141,13 @@
 				'<p><img style="margin-top:0px;width:240px" src="17105288983053444_320x320.png"></img></p>').append(
 				'<div style="margin-top:45px;text-align:left" id="visiting-card"></div>');
 			$('#visiting-card').append('<p>FM915987 在爱的路上千万里</p><p style="font-size:14px">愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</p><p style="font-size:10px"> 新浪微博:喜欢狐狸的松鼠</p><p style="font-size:10px"> 微信:1823708607</p>.')
+			$(window).on('resize',function(){
+				var w=$(window).width();
+				w=Math.max(w,1320);
+				$('#list-container').css('margin-left',(w-1278)/2+'px');
+				console.log(w);
+			}).resize();
+
 		});
 	}).ready(function(){
 		$('ul').on('click',function(event){
