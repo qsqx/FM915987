@@ -31,7 +31,7 @@
 			padding:  0px 0px;
 			border-width: 0px;
 		}
-		#list-container li,a p{
+		#list-container a p{
 			margin: 0px;
 		}
 		#list-container li p{
@@ -40,14 +40,17 @@
 		#list-container a:hover{
 			background-color: rgb(233, 230, 220);
 		}
+		a.list-group-item p{
+			color:rgb(144, 136, 120);
+		}
 		</style>
 </head>
 
 <body >
 	<div id='main-container' style="min-width:1400px">
 		<div id="list-container"  >
-			<div type="none" class="list group" style="margin:10px;padding:0px">
-			  	<a class="list-group-item zzz" href='#' style="" ><div class="row">
+			<div type="none" class="list group" style="margin:10px;padding:0px;">
+			  	<a class="list-group-item" href='#' style="" ><div class="row">
   					<div class="col-md-1 "><p style="margin-top:5px">play</p> 	</div>
   					<div class="col-md-7" style=""><p style="margin-top:5px">【音乐专题】听民谣是一种心情</p></div>
   					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
@@ -60,36 +63,38 @@
   					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
   					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">35'29"</p><p style="font-size:6px">duration</p></div>
 				</div></a>
-				<a class="list-group-item" href='#' style=""><div class="row" style="padding:0px">
-					<div class="col-md-4 "><img src="17105288983053444_320x320.png" width="100%"></img></div>
-					<div class="col-md-8">
-						<div style="margin-left:20px;margin-top:20px"><p>我想陪着你，不管从前还是以后</p></div>
-						<div style="position:relative;padding:20px">
-							<div class="progress" style="height:2px">
-							  <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;margin:0px">
+				<li class="list-group-item"  style="height:300px;"><div class="row" style="padding:0px" >
+					<div class="col-md-4 "><img src="5131ab3e-34e0-4d0b-a5e7-a5c6b377bc62.png" style="width:100%"></img></div>
+					<div class="col-md-8" style="padding:0px 30px;margin:30px 0px;border-width:0px 0px 0px 1px;border-style:solid;border-color:rgba(198,198,198,0.4)">
+						<div style="margin-left:20px;margin-top:40px"><p>【故事专题】我想陪着你，不管从前还是以后</p></div>
+						<div style="position:relative;padding:40px 0px 0px 20px">
+							<div class="progress" style="height:2px;margin:0px ">
+							  <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;margin:0px;padding:0px">
 							    <span class="sr-only">40% Complete (success)</span>
 							  </div>
 							</div>
   						</div>
+  						<div style="text-align:right;font-size:8px">-12'34"</div>
+  						<div style="text-align:right;margin-top:60px;font-size:30px">
+  							<p>
+	  							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+	  							<span style="padding:0px 20px;"></span>
+	  							<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+	  							<span style="padding:0px 20px;"></span>
+	  							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+  							</p>
+  						</div>
 					</div>
+				</div>
+				</li>
+				<a class="list-group-item" href='#' style="" ><div class="row">
+  					<div class="col-md-1 "><p style="margin-top:5px">play</p> 	</div>
+  					<div class="col-md-7" style="height:100%"><p style="margin-top:5px">【故事专题】女生容易被什么感动</p></div>
+  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
+  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">35'29"</p><p style="font-size:6px">duration</p></div>
 				</div></a>
-				<div ><div class="row">
- 					<div class="col-md-8"><p>.col-md-8</p></div>
-				  	<div class="col-md-4"><p>.col-md-4</p></div>
-				</div></div>
 
-				
-
-			  
-
-<div ><div class="row">
-  	<div class="col-md-12" style="height:15px"><div class="progress" style="height:2px">
-  <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;margin:0px">
-    <span class="sr-only">40% Complete (success)</span>
-  </div>
-</div></div>
-  	
-</div></div>
+			
 			</div>
 
 
@@ -119,6 +124,8 @@
 	$(document).ready(function(){
 		$('#spread').on('click',function(){
 			console.log('click');
+			$(window).on('resize',function(){
+			});
 			$('body').css('background-color','#efeeeb');
 			//$('#main-container').css('width','1600px');
 			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':'978px','border-radius':'8px'},'slow','swing',function(){
@@ -126,7 +133,12 @@
 				$('#list-container').fadeIn();
 			}).empty();
 			console.log('finish');
-			$(this).hide();
+			$('#main-bar').css({'background-image':'none','background-color':'rgb(249, 248, 242)','box-shadow': 'rgba(198, 198, 198, 0.4) 2px 2px 2px 2px','padding':'35px 20px'});
+			//'background-image':'url(17105288983053444_320x320.png)','background-size':'auto','background-repeat':'no-repeat','background-position':'0px 0px',
+			$('#main-bar').append(
+				'<p><img style="margin-top:0px;width:240px" src="17105288983053444_320x320.png"></img></p>').append(
+				'<div style="margin-top:45px;text-align:left" id="visiting-card"></div>');
+			$('#visiting-card').append('<p>FM915987 在爱的路上千万里</p><p style="font-size:14px">愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</p><p style="font-size:10px"> 新浪微博:喜欢狐狸的松鼠</p><p style="font-size:10px"> 微信:1823708607</p>.')
 		});
 	}).ready(function(){
 		$('ul').on('click',function(event){

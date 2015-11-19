@@ -9,6 +9,12 @@
 	background-color: #f9f8f2;
 	border-radius: 8px;
 	box-shadow: 2px 2px 2px 2px rgba(198, 198, 198, 0.4);
+	color:rgb(144, 136, 120);
+}
+body{
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	font-size: 18px;
+	color:rgb(144, 136, 120);
 }
 #list-panel{
 	margin:18px;
