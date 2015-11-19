@@ -1,10 +1,17 @@
 #list-container{
-	width:1418px;
+	width:960px;
 	float:left;
 	display:none;
+	margin-left: 1%;
+	margin-top:18px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	font-size: 18px;
+	background-color: #f9f8f2;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px 2px rgba(198, 198, 198, 0.4);
 }
 #list-panel{
-	margin:9px;
+	margin:18px;
 }
 #list-table{
 	word-wrap: break-word;
