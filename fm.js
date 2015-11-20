@@ -4,9 +4,11 @@ var fixW=0.7;
 var fixH=0.7;
 var bsW=0.30;
 var bsH=0.50;
-var textWid=600;
+var textWid=500;
 function reszBkg(){
 	//resize image
+	$('.frontpage').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
+	$('.frontpage').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
 	var winH=$(window).height();
 	var winW=$(window).width();
 	var w=winW;
@@ -17,14 +19,15 @@ function reszBkg(){
 	}
 	var offw=Math.round(fixW*winW-fixW*w);
 	var offh=Math.round(fixH*winH-fixH*h);
-	console.log($(window).width()+'/'+w+','+winH+'/'+h+','+offw+'/'+offh);
-	$('#main-bar').height($(window).height()).css("background-size",w+'px '+h +'px').css("background-position",offw+'px '+offh+'px');
+	$('.frontpage').css({'background-size':w+'px '+h+'px','background-position':offw+'px '+offh+'px','width':winW+'px','height':winH+'px'});
 	w=textWid;
-	h=$('#front-page-container').height();
+	h=$('#frontpage-label-container').height();
 	//resize text
 	offw=Math.round(bsW*winW-bsW*w);
 	offw=Math.max(0,offw);
 	offh=Math.round(bsH*winH-bsH*h);
-	$('#front-page-container').css("margin-left",offw+'px');
-	$('#front-page-container').css("margin-top",offh+'px');
+	offh=Math.max(0,offh);
+	console.log({'padding-left':offw+'px','padding-top':offh+'px'});
+	$('.frontpage').css({'padding-left':offw+'px','padding-top':offh+'px'});
+	//$('#frontpage-label-container').css({'margin-left':offw+'px','margin-top':offh+'px'});
 }

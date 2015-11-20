@@ -1,32 +1,36 @@
+body{
+	font-size: 18px;
+	color:rgb(144, 136, 120);
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	background-color: #efeeeb;
+}
+/*playlist*/
 #list-container{
 	width:960px;
 	float:left;
 	display:none;
-	margin-left: 1%;
 	margin-top:18px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 	font-size: 18px;
 	background-color: #f9f8f2;
 	border-radius: 8px;
 	box-shadow: 2px 2px 2px 2px rgba(198, 198, 198, 0.4);
-	color:rgb(144, 136, 120);
 }
-body{
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	font-size: 18px;
-	color:rgb(144, 136, 120);
+
+/*front-page*/
+.frontpage-container{
+	float: left;
+	overflow: hidden;
+	background-color: #f9f8f2;
+	box-shadow: 2px 2px 2px 2px rgba(198, 198, 198, 0.4);
 }
-#list-panel{
-	margin:18px;
+#frontpage-label-container h1,h4,p{
+	margin:10px;
 }
-#list-table{
-	word-wrap: break-word;
+#frontpage-label-container{
+	color:white;
+	text-align:left;
+	padding: 10px;
 }
-#main-bar{
-	width:100%;
-	height:100px;
-	float:left;
-	position:relative;
-	background-image:url(./K45A69Y0D0YA.png);
-	text-align:center;
+.frontpage{
+	background-image: url("K45A69Y0D0YA.png");
 }

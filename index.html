@@ -7,65 +7,75 @@
 	<script src="./bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./fm.css">
 	<style type="text/css">
-		#front-page-container h1,h4,p,button{
-			margin: 10px;
-		}
 		#list-container .row{
 			margin:0px 0px;
-			padding: 10px 0px 10px 0px;
+			padding: 20px 0px;
 			border-width:0px 0px 1px 0px;
 			border-color: rgba(198,198,198,0.4);
 			border-style: solid;
 		}
-		#list-container .row >div{
-			padding: 0px;
-
-		}
-		#list-container li,a{
-			background-color: inherit;
-			margin: 0px 20px;
-
-		}
-		.list-group-item{
+		#list-container .list-group-item{
 			background-color: inherit;
 			padding:  0px 0px;
+			margin: 0px 20px;
 			border-width: 0px;
 		}
-		#list-container a p{
-			margin: 0px;
-		}
-		#list-container li p{
-			margin: 0px;
-		}
-		#list-container a:hover{
+		#list-container .playlist-item:hover{
 			background-color: rgb(233, 230, 220);
+			cursor: pointer;
 		}
-		a.list-group-item p{
-			color:rgb(144, 136, 120);
+		#list-container .list-group{
+			margin: 10px 10px;
+		}
+		.playlist-published,.playlist-duration{
+			font-size:12px;
+			margin: 0px;
+			text-align:right;
+		}
+		.playlist-label-published,.playlist-label-duration{
+			font-size:6px;
+			margin: 0px;
+			text-align:right;
+		}
+		#list-container .playlist-button,.playlist-title{
+			margin:5px 0px 0px 0px;
+		}
+		.playcard{
+			height:300px;
+		}
+		.playcard .row{
+			padding:0px;
+		}
+		.playcard-right{
+			padding:0px 30px;
+			margin:30px 0px;
+			border-width:0px 0px 0px 1px;
+			border-style:solid;
+			border-color:inherit;
 		}
 		</style>
 </head>
 
 <body >
-	<div id='main-container' style="min-width:1320px">
-		<div id="list-container"  >
-			<div type="none" class="list group" style="margin:10px;padding:0px;">
-			  	<a class="list-group-item" href='#' style="" ><div class="row">
-  					<div class="col-md-1 "><p style="margin-top:5px">play</p> 	</div>
-  					<div class="col-md-7" style=""><p style="margin-top:5px">【音乐专题】听民谣是一种心情</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">35'29"</p><p style="font-size:6px">duration</p></div>
-				</div></a>
+	<div id='main-container' style="">
+		<div id="list-container">
+			<div class="list-group">
+			  	<li class="list-group-item playlist-item"><div class="row">
+  					<div class="col-md-1"><p class="playlist-button">play</p> 	</div>
+  					<div class="col-md-7"><p class="playlist-title">【音乐专题】听民谣是一种心情</p></div>
+  					<div class="col-md-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
+  					<div class="col-md-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
+				</div></li>
 				
-				<a class="list-group-item" href='#' style="" ><div class="row">
-  					<div class="col-md-1 "><p style="margin-top:5px">play</p> 	</div>
-  					<div class="col-md-7" style="height:100%"><p style="margin-top:5px">【故事专题】女生容易被什么感动</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">35'29"</p><p style="font-size:6px">duration</p></div>
-				</div></a>
-				<li class="list-group-item"  style="height:300px;"><div class="row" style="padding:0px" >
+				<li class="list-group-item playlist-item"><div class="row">
+  					<div class="col-md-1"><p class="playlist-button">play</p> 	</div>
+  					<div class="col-md-7"><p class="playlist-title">【故事专题】女生容易被什么感动</p></div>
+  					<div class="col-md-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
+  					<div class="col-md-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
+				</div></li>
+				<li class="list-group-item playcard" ><div class="row">
 					<div class="col-md-4 "><img src="5131ab3e-34e0-4d0b-a5e7-a5c6b377bc62.png" style="width:100%"></img></div>
-					<div class="col-md-8" style="padding:0px 30px;margin:30px 0px;border-width:0px 0px 0px 1px;border-style:solid;border-color:rgba(198,198,198,0.4)">
+					<div class="col-md-8 playcard-right" style="">
 						<div style="margin-left:20px;margin-top:40px"><p>【故事专题】我想陪着你，不管从前还是以后</p></div>
 						<div style="position:relative;padding:40px 0px 0px 20px">
 							<div class="progress" style="height:2px;margin:0px ">
@@ -74,7 +84,7 @@
 							  </div>
 							</div>
   						</div>
-  						<div style="text-align:right;font-size:8px">-12'34"</div>
+  						<div class="time-remain" style="text-align:right;font-size:8px">-12'34"</div>
   						<div style="text-align:right;margin-top:60px;font-size:30px">
   							<p>
 	  							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
@@ -87,66 +97,74 @@
 					</div>
 				</div>
 				</li>
-				<a class="list-group-item" href='#' style="" ><div class="row">
-  					<div class="col-md-1 "><p style="margin-top:5px">play</p> 	</div>
-  					<div class="col-md-7" style="height:100%"><p style="margin-top:5px">【故事专题】女生容易被什么感动</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">2015/11/19</p><p style="font-size:6px">published</p></div>
-  					<div class="col-md-2" style="text-align:right"><p style="font-size:12px">35'29"</p><p style="font-size:6px">duration</p></div>
-				</div></a>
-
 			
 			</div>
-
-
-
 		</div>
-		<div id="main-bar">
-			<div id="front-page-container" style='width:600px;color:white;text-align:left;font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif'>
-				<div >
+		<div class="frontpage-container profile-container">
+			<div class="frontpage profile">
+				<div id="frontpage-label-container">
 					<h1 >FM915987 在爱的路上千万里</h1>
 					<h4>愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</h4>
 					<p>新浪微博:喜欢狐狸的松鼠</p>
 					<p>微信:1823708607</p>
-				</div> 
-				<button type="button" class="btn btn-primary btn-lg" aria-label="Left Align" id="spread" >
-	  				立即收听
-				</button>
+					<button type="button" class="btn btn-primary btn-lg" aria-label="Left Align" id="spread">立即收听</button>
+				</div>
+			</div>
+			<div class="profile-detail" style="display:none;margin:0px 20px">
+				<p>FM915987 在爱的路上千万里</p>
+				<p style="font-size:14px">愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</p>
+				<p style="font-size:10px"> 新浪微博:喜欢狐狸的松鼠</p>
+				<p style="font-size:10px"> 微信:1823708607</p>
 			</div>
 		</div>
-	</div>
-	<div>
-		
 	</div>
 
 <script src='./fm.js'></script>
 <script>
-
+	function addItemToCard(){
+		$('#front-page-container').append(
+					'<p style="margin:0px"><img style="margin-top:0px;width:'+$('#ront-page-container').css('background-width')+'px" src="K45A69Y0D0YA.png"></img></p>').append(
+					'<div style="margin-top:45px;text-align:left;display:none" id="visiting-card"></div>');
+				$('#visiting-card').append('.');
+	}
 	$(document).ready(function(){
 		$('#spread').on('click',function(){
-			console.log('click');
 			$(window).off('resize');
-			$('body').css('background-color','#efeeeb');
-			//$('#main-container').css('width','1600px');
 			var w=$(window).width();
 			w=Math.max(w,1320);
-			w=(w-1278)/2+940+24;
-			$('#main-bar').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':w+'px','border-radius':'8px'},'slow','swing',function(){
-				$('#main-bar').css('margin-left','24px');
-				$('#list-container').fadeIn();
-			}).empty();
+			w=w-1280;
+			$('.frontpage-container').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':w*0.56+960+'px','border-radius':'8px'},'slow','swing',function(){
+				$('#front-page-container').animate({'background-size':'240px 240px','background-position':'30px 45px'},'slow');
+				
+				$('.frontpage').css({'padding':'0px','width':'100%','height':'100%'}).animate(
+					{'width':'240px','height':'240px','margin':'40px'},'slows','swing',function(){
+						$('.frontpage').css({'background-size':'240px 240px','background-position':'0px 0px','background-image':'url(17105288983053444_320x320.png)'});
+						$('.profile-detail').fadeIn('slow',function(){
+							$('.frontpage-container').css('margin-left',w*0.12+'px');
+							$('#list-container').fadeIn('slow');
+							$(window).on('resize',function(){
+								var w=$(window).width();
+								w=Math.max(w,1320);
+								w=w-1280;
+								$('#list-container').css('margin-left',w*0.44+'px');
+								$('.frontpage-container').css('margin-left',w*0.12+'px');
+									console.log(w);
+								}).resize();
+						});
+					});
+				
+				
+				//$('#main-bar').css({'background-image':'none','background-color':'rgb(249, 248, 242)','box-shadow': 'rgba(198, 198, 198, 0.4) 2px 2px 2px 2px','padding':'35px 20px'});
+				//'background-image':'url(17105288983053444_320x320.png)','background-size':'auto','background-repeat':'no-repeat','background-position':'0px 0px',
+				
+
+				
+			});
+			$('#frontpage-label-container').remove();
+			//$('.frontpage').removeAttr("style").removeClass("");
 			console.log('finish');
-			$('#main-bar').css({'background-image':'none','background-color':'rgb(249, 248, 242)','box-shadow': 'rgba(198, 198, 198, 0.4) 2px 2px 2px 2px','padding':'35px 20px'});
-			//'background-image':'url(17105288983053444_320x320.png)','background-size':'auto','background-repeat':'no-repeat','background-position':'0px 0px',
-			$('#main-bar').append(
-				'<p><img style="margin-top:0px;width:240px" src="17105288983053444_320x320.png"></img></p>').append(
-				'<div style="margin-top:45px;text-align:left" id="visiting-card"></div>');
-			$('#visiting-card').append('<p>FM915987 在爱的路上千万里</p><p style="font-size:14px">愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</p><p style="font-size:10px"> 新浪微博:喜欢狐狸的松鼠</p><p style="font-size:10px"> 微信:1823708607</p>.')
-			$(window).on('resize',function(){
-				var w=$(window).width();
-				w=Math.max(w,1320);
-				$('#list-container').css('margin-left',(w-1278)/2+'px');
-				console.log(w);
-			}).resize();
+			
+			
 
 		});
 	}).ready(function(){
