@@ -53,6 +53,13 @@
 			border-style:solid;
 			border-color:inherit;
 		}
+		.magnetic:hover {
+			transition: all 0.7s;
+			-webkit-transform: rotate(-0.4rad);
+			-ms-transform: rotate(-0.4rad);
+			transform: rotate(-0.4rad);
+		}
+
 		</style>
 </head>
 
@@ -61,21 +68,25 @@
 		<div id="list-container">
 			<div class="list-group">
 			  	<li class="list-group-item playlist-item"><div class="row">
-  					<div class="col-md-1"><p class="playlist-button">play</p> 	</div>
-  					<div class="col-md-7"><p class="playlist-title">【音乐专题】听民谣是一种心情</p></div>
-  					<div class="col-md-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
-  					<div class="col-md-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
+  					<div class="col-xs-1"><p class="playlist-button">play</p> 	</div>
+  					<div class="col-xs-7"><p class="playlist-title">【音乐专题】听民谣是一种心情</p></div>
+  					<div class="col-xs-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
+  					<div class="col-xs-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
 				</div></li>
 				
-				<li class="list-group-item playlist-item"><div class="row">
-  					<div class="col-md-1"><p class="playlist-button">play</p> 	</div>
-  					<div class="col-md-7"><p class="playlist-title">【故事专题】女生容易被什么感动</p></div>
-  					<div class="col-md-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
-  					<div class="col-md-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
+				<li class="list-group-item playlist-item" id="item-1"><div class="row">
+  					<div class="col-xs-1"><p class="playlist-button">play</p> 	</div>
+  					<div class="col-xs-7"><p class="playlist-title">【故事专题】女生容易被什么感动</p></div>
+  					<div class="col-xs-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
+  					<div class="col-xs-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
 				</div></li>
+				<img src="5131ab3e-34e0-4d0b-a5e7-a5c6b377bc62.png" style="width:100%;display:none"></img>
 				<li class="list-group-item playcard" ><div class="row">
-					<div class="col-md-4 "><img src="5131ab3e-34e0-4d0b-a5e7-a5c6b377bc62.png" style="width:100%"></img></div>
-					<div class="col-md-8 playcard-right" style="">
+					<div class="col-xs-4 " >
+						<img src="disc.png" style="width:200px; margin-left:25px;margin-top:49px"></img>
+						<img src="magnetic.png" class="magnetic"style="width:266px;margin-left:101px;margin-top:-88px"></img>
+					</div>
+					<div class="col-xs-8 playcard-right" style="">
 						<div style="margin-left:20px;margin-top:40px"><p>【故事专题】我想陪着你，不管从前还是以后</p></div>
 						<div style="position:relative;padding:40px 0px 0px 20px">
 							<div class="progress" style="height:2px;margin:0px ">
@@ -133,6 +144,7 @@
 			var w=$(window).width();
 			w=Math.max(w,1320);
 			w=w-1280;
+			$('#main-container').css('min-width','1320px');
 			$('.frontpage-container').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':w*0.56+960+'px','border-radius':'8px'},'slow','swing',function(){
 				$('#front-page-container').animate({'background-size':'240px 240px','background-position':'30px 45px'},'slow');
 				
@@ -149,7 +161,7 @@
 								$('#list-container').css('margin-left',w*0.44+'px');
 								$('.frontpage-container').css('margin-left',w*0.12+'px');
 									console.log(w);
-								}).resize();
+							}).resize();
 						});
 					});
 				
@@ -178,7 +190,7 @@
 	}).ready(function(){
 		$(window).on('resize',reszBkg);
 	}).ready(reszBkg).ready(function(){
-		//$('#spread').click();
+		$('#spread').click();
 	});
 </script>
 <script>
