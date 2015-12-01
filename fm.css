@@ -48,6 +48,9 @@ body{
 	background-color: rgb(233, 230, 220);
 	cursor: pointer;
 }
+#list-container .item-button:hover{
+	color: #786c59;
+}
 /*playCard*/
 #list-container .playcard .row{
 	padding:0px;

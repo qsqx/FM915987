@@ -6,7 +6,7 @@ var bsW=0.30;
 var bsH=0.50;
 var textWid=500;
 var arr;
-var playnw;
+var playnw=null;
 function reszBkg(){
 	//resize image
 	$('.frontpage').css({'width':$(window).width()+'px','height':$(window).height()+'px'});
