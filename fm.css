@@ -87,9 +87,6 @@ body{
 .playcard-progress .progress{
 	height:2px;margin:0px;
 }
-.playcard-progress .progress-bar{
-	width: 40%;margin:0px;padding:0px;
-}
 .playcard .time-remain{
 	text-align:right;font-size:8px;
 }
