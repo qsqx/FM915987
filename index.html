@@ -69,7 +69,7 @@
   							<span style="padding:0px 20px; "></span>
   							<span class="glyphicon glyphicon-pause button play-pause-button" aria-hidden="true"></span>
   							<span style="padding:0px 20px;"></span>
-  							<span class="glyphicon glyphicon-fast-forward forward-button" aria-hidden="true"></span>
+  							<span class="glyphicon glyphicon-fast-forward button forward-button" aria-hidden="true"></span>
 							</p>
 						</div>
 				</div>
@@ -89,6 +89,22 @@
 	}
 </script>
 <script>
+	var player={
+		p:$('#jPlayer'),
+		isPlaying:false,
+		setMedia:function(url){
+			this.p.jPlayer('setMedia',url);
+			return this;
+		},
+		play:function(){
+			this.isPlaying=true;
+			this.p.jPlayer('play');
+		},
+		pause:function(){
+			this.isPlaying=false;
+			this.p.jPlayer('pause');
+		}
+	}
 	function getPlaylist(item,id){
 		$('#template-playlist .playlist-title').html(item.title);
 		$('#template-playlist .playlist-published').html(item.published);
@@ -106,24 +122,24 @@
 	}
 	function spreadToCard(id){
 		$('#item-'+id).html(getPlaycard(arr[id])).removeClass('playlist-item').addClass('playcard');
+		player.setMedia(arr[id].url).play();
 		playnw=id;
 
 	}
 	function retractToItem(){
 		if(playnw!=null){
-
 			$('#item-'+playnw).html(getPlaylist(arr[playnw],playnw)).removeClass('playcard').addClass('playlist-item');
 		}
 	}
 	
+	
 </script>
 <script>
 	$(document).ready(function(){
-		$('#jPlayer').jPlayer({ready:function(){
-			$(this).jPlayer("setMedia",{
-				mp3: "audio/151129.mp3"
-			});
+		player.p.jPlayer({ready:function(){
+			
 			//$(this).jPlayer("play",0);
+			//player.play();
 		}
 		});
 	});
@@ -138,30 +154,18 @@
 				spreadToCard(id);
 			}
 			else if(tar.hasClass('play-pause-button')){
-				console.log(345);
+				if(player.isPlaying){
+					player.pause();
+				} 
+				else{
+					player.play();
+				} 
+				tar.toggleClass('glyphicon-pause').toggleClass('glyphicon-play');
 			}
 		});
 	});
 </script>
-<script>
-	setList({list:[{
-			title:'【音乐专题】听民谣是一种心情',
-			published:'2015/11/19',
-			duration:'35\'29\"',
-			url:'audio/151129.mp3'
-		},{
-			title:'【故事专题】女生容易被什么感动',
-			published:'2015/11/16',
-			duration:'24\'17\"',
-			url:'audio/123.mp3'
-		},{
-			title:'【故事专题】我想陪着你，不管从前还是以后',
-			published:'2015/11/14',
-			duration:'26\'31\"',
-			url:'audio/123.mp3'
-		}
-	]});
-</script>
+<script src="json.js"></script>
 
 </body>
 </html>
