@@ -8,35 +8,18 @@
 	<script src="jplayer/jquery.jplayer.min.js"></script>
 	<link rel="stylesheet" href="./fm.css">
 	<style type="text/css">
-		
-		
-		
-		
-		
-		
-
-		</style>
+	</style>
 </head>
-
 <body >
 	<div id='main-container' style="">
 		<div id="list-container">
 			<div class="list-group">
-			  	<li class="list-group-item playlist-item"><div class="row">
-  					<div class="col-xs-1"><p class="playlist-button">play</p> 	</div>
-  					<div class="col-xs-7"><p class="playlist-title">【音乐专题】听民谣是一种心情</p></div>
-  					<div class="col-xs-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
-  					<div class="col-xs-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
-				</div></li>
-				
 				<li class="list-group-item playlist-item" id="item-1"><div class="row">
   					<div class="col-xs-1"><p class="playlist-button">play</p> 	</div>
   					<div class="col-xs-7"><p class="playlist-title">【故事专题】女生容易被什么感动</p></div>
   					<div class="col-xs-2"><p class="playlist-published">2015/11/19</p><p class="playlist-label-published">published</p></div>
   					<div class="col-xs-2"><p class="playlist-duration">35'29"</p><p class="playlist-label-duration">duration</p></div>
 				</div></li>
-
-
 				<li class="list-group-item playcard" ><div class="row">
 					<div class="col-xs-4 " >
 						<img src="disc.png" class="disc"></img>
@@ -54,11 +37,11 @@
   						<div class="time-remain" >-12'34"</div>
   						<div class="controls">
   							<p>
-	  							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+	  							<span class="glyphicon glyphicon-fast-backward button" aria-hidden="true"></span>
+	  							<span style="padding:0px 20px; "></span>
+	  							<span class="glyphicon glyphicon-pause button" aria-hidden="true"></span>
 	  							<span style="padding:0px 20px;"></span>
-	  							<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-	  							<span style="padding:0px 20px;"></span>
-	  							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+	  							<span class="glyphicon glyphicon-fast-forward button" aria-hidden="true"></span>
   							</p>
   						</div>
 					</div>
@@ -85,86 +68,77 @@
 		</div>
 	</div>
 	<div id="jPlayer"></div>
+	<div class="preload" style="display:none">
+		<img src="17105288983053444_320x320.png"></img>
+	</div>
+	<div class="template" style="display:none">
+		<div id="template-playlist">
+			<li class="list-group-item playlist-item"><div class="row">
+	  					<div class="col-xs-1"><p class="playlist-button">play</p> 	</div>
+	  					<div class="col-xs-7"><p class="playlist-title">title</p></div>
+	  					<div class="col-xs-2"><p class="playlist-published">published</p><p class="playlist-label-published">published</p></div>
+	  					<div class="col-xs-2"><p class="playlist-duration">duration</p><p class="playlist-label-duration">duration</p></div>
+			</div></li>
+		</div>
+		<div id="template-playcard">
+			<li class="list-group-item playcard" ><div class="row">
+				<div class="col-xs-4 " >
+					<img src="disc.png" class="disc"></img>
+					<img src="magnetic.png" class="magnetic"></img>
+				</div>
+				<div class="col-xs-8 playcard-right">
+					<div class="playcard-title"><p>【故事专题】我想陪着你，不管从前还是以后</p></div>
+					<div class="playcard-progress" >
+						<div class="progress" >
+						  <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+						    <span class="sr-only">40% Complete (success)</span>
+						  </div>
+						</div>
+						</div>
+						<div class="time-remain" >-12'34"</div>
+						<div class="controls">
+							<p>
+  							<span class="glyphicon glyphicon-fast-backward button" aria-hidden="true"></span>
+  							<span style="padding:0px 20px; "></span>
+  							<span class="glyphicon glyphicon-pause button" aria-hidden="true"></span>
+  							<span style="padding:0px 20px;"></span>
+  							<span class="glyphicon glyphicon-fast-forward button" aria-hidden="true"></span>
+							</p>
+						</div>
+				</div>
+			</div>
+			</li>
+		</div>
+	</div>
 
 <script src='./fm.js'></script>
 <script>
-	function addItemToCard(){
-		$('#front-page-container').append(
-					'<p style="margin:0px"><img style="margin-top:0px;width:'+$('#ront-page-container').css('background-width')+'px" src="K45A69Y0D0YA.png"></img></p>').append(
-					'<div style="margin-top:45px;text-align:left;display:none" id="visiting-card"></div>');
-				$('#visiting-card').append('.');
-	}
-	$(document).ready(function(){
-		$('#spread').on('click',function(){
-			$(window).off('resize');
-			var w=$(window).width();
-			w=Math.max(w,1320);
-			w=w-1280;
-			$('#main-container').css('min-width','1320px');
-			$('.frontpage-container').animate({'width':'320px','height':'600px','margin-top':'18px','margin-left':w*0.56+960+'px','border-radius':'8px'},'slow','swing',function(){
-				$('#front-page-container').animate({'background-size':'240px 240px','background-position':'30px 45px'},'slow');
-				
-				$('.frontpage').css({'padding':'0px','width':'100%','height':'100%'}).animate(
-					{'width':'240px','height':'240px','margin':'40px'},'slows','swing',function(){
-						$('.frontpage').css({'background-size':'240px 240px','background-position':'0px 0px','background-image':'url(17105288983053444_320x320.png)'});
-						$('.profile-detail').fadeIn('slow',function(){
-							$('.frontpage-container').css('margin-left',w*0.12+'px');
-							$('#list-container').fadeIn('slow');
-							$(window).on('resize',function(){
-								var w=$(window).width();
-								w=Math.max(w,1320);
-								w=w-1280;
-								$('#list-container').css('margin-left',w*0.44+'px');
-								$('.frontpage-container').css('margin-left',w*0.12+'px');
-									console.log(w);
-							}).resize();
-						});
-					});
-				
-				
-				//$('#main-bar').css({'background-image':'none','background-color':'rgb(249, 248, 242)','box-shadow': 'rgba(198, 198, 198, 0.4) 2px 2px 2px 2px','padding':'35px 20px'});
-				//'background-image':'url(17105288983053444_320x320.png)','background-size':'auto','background-repeat':'no-repeat','background-position':'0px 0px',
-				
-
-				
-			});
-			$('#frontpage-label-container').remove();
-			//$('.frontpage').removeAttr("style").removeClass("");
-			console.log('finish');
-			
-			
-
-		});
-	}).ready(function(){
-		$('ul').on('click',function(event){
-			if($(event.target).is('.play-button')){
-				console.log('play');
-			}
-			
-			
-		});
-	}).ready(function(){
-		$(window).on('resize',reszBkg);
-	}).ready(reszBkg).ready(function(){
-		//$('#spread').click();
-	});
-</script>
-<script>
-	function insertList(obj){
-		var l=$('.table');
-		for(var x in obj.list){
-			l.append('<tr> <td>play-button</td> <td>'+obj.list[x]+'</td><td>2015/11/18</td></tr>');
+	function setList(obj){
+		arr=obj.list;
+		var l=$('#list-container .list-group');
+		for(var i in obj.list){
+			l.append(getPlaylist(obj.list[i]));
 		}
 	}
 </script>
 <script>
-		//insertList({'list':['aaxxxxbknihbiuhkuhiuhbkjbkuhbkugkxxxxxa','bbb']});
+	function getPlaylist(item){
+		$('#template-playlist .playlist-title').html(item.title);
+		$('#template-playlist .playlist-published').html(item.published);
+		$('#template-playlist .playlist-duration').html(item.duration);
+		var html=$('#template-playlist').html();
+		return html;
+	}
+	function getPlaycard(item){
+		$('#template-playcard playcard-title').html(item.title);
+		var html=$('template-playcard').html();
+		return html;
+	}
+	
 </script>
 <script>
 	$(document).ready(function(){
-		console.log(123);
 		$('#jPlayer').jPlayer({ready:function(){
-			console.log(123);
 			$(this).jPlayer("setMedia",{
 				mp3: "audio/151129.mp3"
 			});
@@ -174,9 +148,18 @@
 	});
 </script>
 <script>
-	$(document).ready(function(){
-		
-	});
+	setList({list:[{
+			title:'【音乐专题】听民谣是一种心情',
+			published:'2015/11/19',
+			duration:'35\'29\"',
+			url:'audio/151129.mp3'
+		},{
+			title:'【故事专题】女生容易被什么感动',
+			published:'2015/11/16',
+			duration:'24\'17\"',
+			url:'audio/123.mp3'
+		}
+	]});
 </script>
 
 </body>

@@ -93,6 +93,10 @@ body{
 .playcard .controls{
 	text-align:right;margin-top:60px;font-size:30px;
 }
+.playcard .controls .button:hover{
+	cursor:pointer;
+	color: #786c59;
+}
 /*front-page*/
 .frontpage-container{
 	float: left;
