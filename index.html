@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="./bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<script src="./jquery.min.js"></script>
 	<script src="./bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-	<script src="jplayer/jquery.jplayer.min.js"></script>
 	<link rel="stylesheet" href="./fm.css">
 	<style type="text/css">
 	</style>
@@ -34,7 +33,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="jPlayer"></div>
+	<div><audio id='player' style="width:0px;height:0px"></audio></div>
 	<div class="preload" style="display:none">
 		<img src="17105288983053444_320x320.png"></img>
 	</div>
@@ -90,21 +89,44 @@
 </script>
 <script>
 	var player={
-		p:$('#jPlayer'),
+		q:null,
+		dom:null,
 		isPlaying:false,
+		getSrc:function(url){
+			var src="";
+			for(var i in url){
+				src+='<source src=\"'+url[i]+'\" type=\"audio/'+i+'\">';
+			}
+			console.log(src);
+			return src;
+		},
 		setMedia:function(url){
-			this.p.jPlayer('setMedia',url);
+			this.q.empty();
+			this.q.html(this.getSrc(url));
 			return this;
 		},
 		play:function(){
 			this.isPlaying=true;
-			this.p.jPlayer('play');
+			this.dom.play();
 		},
 		pause:function(){
 			this.isPlaying=false;
-			this.p.jPlayer('pause');
+			this.dom.pause();
+		},
+		getCurrentTime:function(){
+			return this.dom.currentTime;
+		},
+		getCurrentPercent:function(){
+			return this.dom.currentTime/this.dom.duration*100;
+		},
+		getBufferedLength:function(){
+			return this.dom.buffered.length?this.dom.buffered.end(0):0;
+		},
+		getBufferedPercent:function(){
+			return this.getBufferedLength()/this.dom.duration*100;
 		},
 		formatTime: function(t){
+			t=Math.floor(t);
 			if(t>=60){
 				return Math.floor(t/60)+'\''+t%60+'\"';
 			}
@@ -130,9 +152,7 @@
 	}
 	function spreadToCard(id){
 		$('#item-'+id).html(getPlaycard(arr[id])).removeClass('playlist-item').addClass('playcard');
-		player.setMedia(arr[id].url).play();
 		playnw=id;
-
 	}
 	function retractToItem(){
 		if(playnw!=null){
@@ -144,12 +164,16 @@
 </script>
 <script>
 	$(document).ready(function(){
-		player.p.jPlayer({
-			timeupdate :function(event){
-				$('.playcard .progress-bar').css('width',event.jPlayer.status.currentPercentAbsolute+'%');
-				$('.playcard .time-remain').html('-'+player.formatTime(Math.floor(event.jPlayer.status.duration-event.jPlayer.status.currentTime)));
-			}
+		player.q=$('#player');
+		player.dom=player.q[0];
+		player.q.on('ended',function(){
+			$('.play-pause-button').toggleClass('glyphicon-pause').toggleClass('glyphicon-play');
+			player.isPlaying=false;
 		});
+		setInterval(function(){
+			//console.log(player.getBufferedPercent());
+			//console.log(player.getCurrentPercent());
+		},500);
 	});
 	$(document).ready(function(){
 		$('#list-container').on('click',function(event){
@@ -160,6 +184,7 @@
 				id=parseInt(id);
 				retractToItem();
 				spreadToCard(id);
+				player.setMedia(arr[id].url).play();
 			}
 			else if(tar.hasClass('play-pause-button')){
 				if(player.isPlaying){
