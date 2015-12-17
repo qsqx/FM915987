@@ -98,6 +98,7 @@ function getPlaylist(item,id){
 $(document).ready(function(){
 	$('#list-container').on('click',function(event){
 		var tar=$(event.target);
+		console.log(tar);
 		if(tar.hasClass('item-button')){
 			var id=tar.attr('id');
 			id=/[0-9]+/.exec(id)[0];

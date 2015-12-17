@@ -8,15 +8,46 @@
 	<link rel="stylesheet" href="./fm.css">
 	<style type="text/css">
 	</style>
+	<script>
+		function getArgu(){
+			var argu;
+			var url=window.location.href.split('#');
+			if(url.size<2) return {};
+			url=url[1];
+
+		}
+	</script>
 </head>
 <body >
-	<div id='main-container' style="">
+	<div id='main-container'>
 		<div id="list-container">
-			<div class="list-group">			
+			<div class="list-group">		
+			</div>
+			<div style="float:right;margin:0px 20px 0px 0px">
+				<nav>
+				  <ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li><a href="#!/?page=1">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
 			</div>
 		</div>
+
 		<div class="frontpage-container profile-container">
-			<div class="frontpage profile">
+			<div class="profile">
 				<div id="frontpage-label-container">
 					<h1 >FM915987 在爱的路上千万里</h1>
 					<h4>愿我的音乐和故事可以为你的寂静夜晚带来一点温暖。</h4>
@@ -33,6 +64,8 @@
 			</div>
 		</div>
 	</div>
+
+
 	<div><audio id='player' style="width:0px;height:0px"></audio></div>
 	<div class="preload" style="display:none">
 		<img src="17105288983053444_320x320.png"></img>
@@ -54,15 +87,16 @@
 				</div>
 				<div class="col-xs-8 playcard-right">
 					<div class="playcard-title"><p>【故事专题】我想陪着你，不管从前还是以后</p></div>
-					<div class="playcard-progress" >
-						<div class="progress" >
-						  <div class="progress-bar played-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="background-color:green">
-						    <span class="sr-only"></span>
-						  </div>
-						  <div class="progress-bar buffered-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="background-color:yellow">
-						    <span class="sr-only"></span>
-						  </div>
-						</div>
+						<div class="playcard-progress" >
+							<div class="progress" >
+							  <div class="progress-bar played-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="background-color:green">
+							    <span class="sr-only"></span>
+							  </div>
+							  <div class="progress-bar buffered-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="background-color:yellow">
+							    <span class="sr-only"></span>
+							  </div>
+							</div>
+							
 						</div>
 						<div class="time-remain" >-12'34"</div>
 						<div style="float:left"><p class="playcard-status"></p></div>
