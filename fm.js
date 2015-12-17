@@ -7,6 +7,14 @@ var bsH=0.50;
 var textWid=500;
 var arr;
 var playnw=null;
+var param={
+	welcome:true,
+	pageSize:20,
+	page:1
+};
+function getParam(){
+	
+}
 var sizer={
 	reszBkg: function(){
 		//resize image
@@ -31,7 +39,6 @@ var sizer={
 		offh=Math.round(bsH*winH-bsH*h);
 		offh=Math.max(0,offh);
 		$('.frontpage').css({'padding-left':offw+'px','padding-top':offh+'px'});
-		//$('#frontpage-label-container').css({'margin-left':offw+'px','margin-top':offh+'px'});
 	},
 	reszPage:function(){
 		var w=$(window).width();
@@ -56,8 +63,7 @@ var sizer={
 	}
 }
 $(document).ready(function(){
-	var welcome=true;
-	if(welcome){
+	if(param.welcome){
 		$('.profile').removeClass('profile').addClass('frontpage');
 		$(window).on('resize',sizer.reszBkg).resize();
 		$('#spread').on('click',function(){
@@ -88,7 +94,52 @@ $(document).ready(function(){
 		$('.profile-detail').show();
 		$('.frontpage-container').css('margin-left',w*0.12+'px');
 		$('#list-container').show();
-		$(window).on('resize',sizer.reszPage).resize();			
+		$(window).on('resize',sizer.reszPage).resize();
 	}
 });
-
+var pager={
+	switchPage:function(e){
+		var l=$('#list-container .list-group');
+		player.pause();
+		l.empty();
+		e=Math.max(e,1);
+		var bg=(e-1)*param.pageSize,end=e*param.pageSize;
+		end=Math.min(end,arr.length);
+		for(var i=bg;i<end;++i){
+			l.append('<li class="list-group-item playlist-item" id=\"item-'+i+'\">'+getPlaylist(arr[i],i)+'</li>');
+		}
+		this.pgnw=e;
+		return this;
+	},
+	init:function(){
+		this.pgs=Math.ceil(arr.length/param.pageSize);
+		for(var i = 1;i<=this.pgs;++i){
+			$('.page-label').append('<li><a href="#!/?page='+i+'" onclick="pager.switchPage('+i+')">'+i+'</a></li>');
+		}
+		return this;
+	}
+}
+function getParam(){
+	var pset={
+		page:true,
+		welcome:true,
+		pageSize:true
+	};
+	var url=window.location.href.split('?');
+	if(url.length<2) return ;
+	url=url[1].split('&');
+	for(var i in url){
+		var s=url[i].split('=').map($.trim);
+		if(s.length==2&&(s[0] in pset)){
+			if(s[1]=='true') param[s[0]]=true;
+			else if(s[1]=='false') param[s[0]]=false;
+			else if(/[0-9]+/.test(s[1])) param[s[0]]=parseInt(s[1]);
+			else param[s[0]]=s[1];
+		}
+	}
+	console.log(param);
+}
+getParam();
+$(window).ready(function(){
+	pager.init().switchPage(param.page);
+});

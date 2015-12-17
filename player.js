@@ -78,23 +78,22 @@ function getPlaylist(item,id){
 		var html=$('#template-playlist .playlist-item').html();
 		$('#template-playlist .playlist-button').removeAttr('id');
 		return html;
+}
+function getPlaycard(item){
+	$('#template-playcard .playcard-title').html(item.title);
+	var html=$('#template-playcard .playcard').html();
+	console.log(item.title);
+	return html;
+}
+function spreadToCard(id){
+	$('#item-'+id).html(getPlaycard(arr[id])).removeClass('playlist-item').addClass('playcard');
+	playnw=id;
+}
+function retractToItem(){
+	if(playnw!=null){
+		$('#item-'+playnw).html(getPlaylist(arr[playnw],playnw)).removeClass('playcard').addClass('playlist-item');
 	}
-	function getPlaycard(item){
-		$('#template-playcard .playcard-title').html(item.title);
-		var html=$('#template-playcard .playcard').html();
-		console.log(item.title);
-		return html;
-	}
-	function spreadToCard(id){
-		$('#item-'+id).html(getPlaycard(arr[id])).removeClass('playlist-item').addClass('playcard');
-		playnw=id;
-	}
-	function retractToItem(){
-		if(playnw!=null){
-			$('#item-'+playnw).html(getPlaylist(arr[playnw],playnw)).removeClass('playcard').addClass('playlist-item');
-		}
-	}
-
+}
 $(document).ready(function(){
 	$('#list-container').on('click',function(event){
 		var tar=$(event.target);

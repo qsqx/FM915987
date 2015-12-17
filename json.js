@@ -1,4 +1,5 @@
-setList({list:[{
+setList({list:
+	[{
 		title:'【音乐专题】听民谣是一种心情',
 		published:'2015/11/19',
 		duration:'35\'29\"',

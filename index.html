@@ -9,13 +9,6 @@
 	<style type="text/css">
 	</style>
 	<script>
-		function getArgu(){
-			var argu;
-			var url=window.location.href.split('#');
-			if(url.size<2) return {};
-			url=url[1];
-
-		}
 	</script>
 </head>
 <body >
@@ -25,27 +18,11 @@
 			</div>
 			<div style="float:right;margin:0px 20px 0px 0px">
 				<nav>
-				  <ul class="pagination">
-				    <li>
-				      <a href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a>
-				    </li>
-				    <li><a href="#!/?page=1">1</a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
-				    <li>
-				      <a href="#" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a>
-				    </li>
+				  <ul class="pagination page-label">
 				  </ul>
 				</nav>
 			</div>
 		</div>
-
 		<div class="frontpage-container profile-container">
 			<div class="profile">
 				<div id="frontpage-label-container">
@@ -115,18 +92,14 @@
 		</div>
 	</div>
 
-<script src='./fm.js'></script>
+
 <script>
 	function setList(obj){
-		console.log('123');
 		arr=obj.list;
-		var l=$('#list-container .list-group');
-		for(var i in obj.list){
-			l.append('<li class="list-group-item playlist-item" id=\"item-'+i+'\">'+getPlaylist(obj.list[i],i)+'</li>');
-		}
 	}
 </script>
 <script src="player.js"></script>
+<script src='./fm.js'></script>
 <script src="json.js"></script>
 
 </body>
