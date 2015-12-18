@@ -12,9 +12,6 @@ var param={
 	pageSize:20,
 	page:1
 };
-function getParam(){
-	
-}
 var sizer={
 	reszBkg: function(){
 		//resize image
@@ -114,7 +111,7 @@ var pager={
 	init:function(){
 		this.pgs=Math.ceil(arr.length/param.pageSize);
 		for(var i = 1;i<=this.pgs;++i){
-			$('.page-label').append('<li><a href="#!/?page='+i+'" onclick="pager.switchPage('+i+')">'+i+'</a></li>');
+			$('.page-label').append('<li><a href="#!/?welcome=false&page='+i+'" onclick="pager.switchPage('+i+')">'+i+'</a></li>');
 		}
 		return this;
 	}
